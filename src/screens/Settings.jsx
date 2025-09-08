@@ -110,8 +110,6 @@ const notificationHandler = () => {
                   <FaLanguage className={styles.icon} /> Language
                   <span className={styles.settingRight}>English</span>
                 </div>
-                
-                
 
               </div>
 

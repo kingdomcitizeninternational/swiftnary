@@ -17,7 +17,7 @@ export default defineConfig({
         'favicon.ico'
       ],
       manifest: {
-        name: 'Alphagainmetrics',
+        name: 'Swiftnary',
         short_name: 'AGM',
         description: 'Your secure investment',
         start_url: '/',
