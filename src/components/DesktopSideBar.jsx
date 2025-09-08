@@ -25,7 +25,7 @@ const DesktopSideBar = () => {
   return (
     <div className={styles.sidebar} style={{  backgroundColor: '#0C1125'}} >
       <div className={styles.topSection} style={{  backgroundColor: '#0C1125'}}>
-        <div>AGM</div>
+        <div>SWN</div>
       </div>
 
       <div className={styles.navWrapper} style={{  backgroundColor: '#0C1125'}}>
