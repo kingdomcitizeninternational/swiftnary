@@ -110,10 +110,7 @@ const notificationHandler = () => {
                   <FaLanguage className={styles.icon} /> Language
                   <span className={styles.settingRight}>English</span>
                 </div>
-                <div className={styles.settingsItem} onClick={openCurrencyModalHandler}>
-                  <FaDollarSign className={styles.icon} /> Currency
-                  <span className={styles.settingRight}>{user.currency ? user.currency : 'USD'}</span>
-                </div>
+                
                 
 
               </div>
