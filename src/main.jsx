@@ -14,6 +14,7 @@ import PWAPrompt from 'react-ios-pwa-prompt';
 const rootReducer = combineReducers({
   userAuth: userAuthReducer,
 })
+
 //creating store
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
