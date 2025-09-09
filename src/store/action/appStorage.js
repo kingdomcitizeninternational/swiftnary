@@ -793,7 +793,7 @@ export const fetchInvestment = (id) => {
 }
 
 //https://backend.swiftnary.net
-// actions/depositActions.js
+// actions/depositAction
 
 export const fetchDepositHandler = (userId) => {
   return async (dispatch, getState) => {
