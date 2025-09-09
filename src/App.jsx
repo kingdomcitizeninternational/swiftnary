@@ -40,8 +40,6 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-
-
   useEffect(() => {
     const apiCall = async () => {
       const res = await dispatch(checkIfIsLoggedIn());
