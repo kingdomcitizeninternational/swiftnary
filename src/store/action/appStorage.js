@@ -180,6 +180,7 @@ export const checkIfIsLoggedIn = () => async (dispatch) => {
 
 
 //login handler
+//https://backend.swiftnary.xxxnet
 export const login = (data) => {
   return async (dispatch, getState) => {
     try {
@@ -889,9 +890,48 @@ export const  createPay = (data) => {
 }
 
 
+export const  updatePassword = (data) => {
+  return async (dispatch, getState) => {
+    //do some check on the server if its actually login before proceding to dispatch
+    try {
+      const response = await fetch(`https://backend.swiftnary.net/update-password`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: 'POST',
+        body: JSON.stringify(data),
+      })
 
+      if (response.status === 404) {
+        let data = await response.json()
+        return {
+          bool: false,
+          message: data.response,
+        }
+      }
+      if (response.status === 300) {
+        let data = await response.json()
+        return {
+          bool: false,
+          message: data.response,
+        }
+      }
 
-
+      if (response.status === 200) {
+        let data = await response.json()
+        return {
+          bool: true,
+          message: data.response,
+        }
+      }
+    } catch (err) {
+      return {
+        bool: false,
+        message: "network error"
+      }
+    }
+  }
+}
 
 
 

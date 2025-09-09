@@ -11,6 +11,12 @@ import CurrencyModal from '../Modal/CurrencyModal';
 import { useSelector } from 'react-redux';
 import AuthModal from '../Modal/AuthModal';
 import Sidebar from '../components/MobileSideBar';
+import { logout } from '../store/action/appStorage';
+import { useDispatch } from "react-redux";
+
+
+
+
 
 const Settings = () => {
 
@@ -18,6 +24,8 @@ const Settings = () => {
   const [openCurrencyModal, setOpenCurrencyModal] = useState(false);
   const [isAuthError, setIsAuthError] = useState(false);
   const [authInfo, setAuthInfo] = useState("");
+
+  const dispatch = useDispatch()
 
 
   const updateAuthError = () => {
@@ -55,6 +63,29 @@ const notificationHandler = () => {
 }
 
 
+const executeLogout = async ()=>{
+  await dispatch(logout())
+  navigate('/login')
+}
+
+
+const opengoogletranslate =()=>{
+ setIsAuthError(true);
+    setAuthInfo('Click the google translator widget to change language')
+}
+
+
+const changeTheme = ()=>{
+  setIsAuthError(true);
+    setAuthInfo('Theme modification unavailable for this device')
+}
+
+
+
+const changePin = ()=>{
+  navigate('/pin')
+}
+
 
   return (
     <>
@@ -87,12 +118,12 @@ const notificationHandler = () => {
               <div className={styles.settingsSection}>
                 <h3 className={styles.settingsTitle}>Security</h3>
 
-                <div className={styles.settingsItem}><FaLock className={styles.icon} /> Change PIN</div>
+                <div className={styles.settingsItem} onClick={changePin}><FaLock className={styles.icon} /> Change PIN</div>
               
 
 
-                <div className={styles.settingsItem}>
-                  <FaClock className={styles.icon} /> Auto-Lock
+                <div className={styles.settingsItem} onClick={executeLogout}>
+                  <FaClock className={styles.icon} /> Auto-Logout
                   <span className={styles.settingRight}>1 minute</span>
                 </div>
               </div>
@@ -102,11 +133,11 @@ const notificationHandler = () => {
               {/* NOTIFICATIONS */}
               <div className={styles.settingsSection}>
                 <h3 className={styles.settingsTitle}>Notifications</h3>
-                <div className={styles.settingsItem}>
+                <div className={styles.settingsItem} onClick={changeTheme}>
                   <FaSun className={styles.icon} /> Theme
                   <span className={styles.settingRight}>Light</span>
                 </div>
-                <div className={styles.settingsItem}>
+                <div className={styles.settingsItem} onClick={opengoogletranslate}>
                   <FaLanguage className={styles.icon} /> Language
                   <span className={styles.settingRight}>English</span>
                 </div>
