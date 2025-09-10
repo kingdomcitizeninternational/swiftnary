@@ -894,6 +894,9 @@ export const  updatePassword = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
+       let {
+        user
+      } = getState().userAuth
       const response = await fetch(`https://backend.swiftnary.net/update-password`, {
         headers: {
           "Content-Type": "application/json",
@@ -919,6 +922,10 @@ export const  updatePassword = (data) => {
 
       if (response.status === 200) {
         let data = await response.json()
+        let newUser = {...user,password: user.password}
+
+       dispatch({ type: UPDATE_USER, payload: newUser })
+        //update password
         return {
           bool: true,
           message: data.response,

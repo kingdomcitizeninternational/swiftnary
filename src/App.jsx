@@ -27,8 +27,8 @@ import { NotificationToast } from "./component/general/Notification";
 
 import { toast, Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//import Registeration from './screens/Registeration';
-//import ProfilePhoto from './screens/ProfilePhoto';
+import Registeration from './screens/Registeration';
+import ProfilePhoto from './screens/ProfilePhoto';
 import ImgUrl from './assets/192.png';
 import Signup from "./screens/Signup";
 import Pin from "./screens/PinSetting";
@@ -51,19 +51,19 @@ function App() {
             title={payload.notification.title}
             message={payload.notification.body}
             image={ImgUrl}
-            style={{  borderRadius: '8px', color: 'white' }}
+            style={{ borderRadius: '8px', color: 'white' }}
           />
-          , {
-            backgroundColor: '#0C1125',
-            position: "top-right",
-            autoClose: false,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            transition: Slide,
-            
-          });
+            , {
+              backgroundColor: '#0C1125',
+              position: "top-right",
+              autoClose: false,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              transition: Slide,
+
+            });
         });
       }
       setIsLoading(false);
@@ -94,11 +94,11 @@ function App() {
           <Route path='/verification' element={<Verification />} />
           <Route path='/notification' element={<Notification />} />
           {/* Protected Routes */}
-        
+
           <Route path='/settings' element={<ProtectedRoute><Settings /></ProtectedRoute>} />
 
           <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-       
+
           <Route path='/invest' element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
 
           <Route path='/portfolio' element={<ProtectedRoute><Portfolio /></ProtectedRoute>} />
@@ -107,13 +107,13 @@ function App() {
           <Route path='/upgrade' element={<ProtectedRoute><Upgrade /></ProtectedRoute>} />
           <Route path='/fund-account' element={<ProtectedRoute><FundAccount /></ProtectedRoute>} />
           <Route path='/withdraw' element={<ProtectedRoute><Withdraw /></ProtectedRoute>} />
- <Route path='/deposit-detail' element={<ProtectedRoute><DepositDetail /></ProtectedRoute>} />
- 
- {/*  <Route path='/registeration' element={<ProtectedRoute><Registeration /></ProtectedRoute>} />
-          <Route path='/profilephoto' element={<ProtectedRoute><ProfilePhoto /></ProtectedRoute>} />*/}
-          
+          <Route path='/deposit-detail' element={<ProtectedRoute><DepositDetail /></ProtectedRoute>} />
 
-  <Route path='/pin' element={<ProtectedRoute><Pin /></ProtectedRoute>} />
+          <Route path='/registeration' element={<ProtectedRoute><Registeration /></ProtectedRoute>} />
+          <Route path='/profilephoto' element={<ProtectedRoute><ProfilePhoto /></ProtectedRoute>} />
+
+
+          <Route path='/pin' element={<ProtectedRoute><Pin /></ProtectedRoute>} />
 
 
 
